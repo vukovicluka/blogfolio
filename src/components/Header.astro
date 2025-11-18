@@ -1,0 +1,93 @@
+---
+---
+
+<header class="hero">
+	<div class="hero__text">
+		<h1>
+			<a class="hero__home-link" href="/">Luka Vuković</a>
+		</h1>
+		<h2>Software Engineer</h2>
+	</div>
+	<nav class="hero__nav">
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</nav>
+</header>
+
+<style>
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 1.25rem;
+	padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 5vw, 4rem);
+	background-color: #fff;
+	width: min(100%, 1100px);
+	min-width: min(670px, 100%);
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.hero__text h1 {
+	margin: 0.15rem 0 0;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.hero__home-link {
+	color: inherit;
+	text-decoration: none;
+	display: inline-block;
+	transition: color 0.2s ease;
+}
+
+.hero__home-link:hover,
+.hero__home-link:focus-visible {
+	color: #7c3aed;
+}
+
+.hero__text h2 {
+	margin: 0.35rem 0 0;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.65);
+}
+
+.hero__eyebrow {
+	margin: 0;
+	font-size: 0.85rem;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.45);
+}
+
+.hero__nav {
+	display: flex;
+	gap: 1rem;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	justify-content: center;
+}
+
+.hero__nav a {
+	color: #111;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.hero__nav a:hover,
+.hero__nav a:focus-visible {
+	color: #7c3aed;
+}
+
+@media (max-width: 640px) {
+	.hero {
+		width: 100%;
+		min-width: 0;
+	}
+}
+</style>
+
