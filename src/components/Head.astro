@@ -1,0 +1,33 @@
+---
+import websiteImage from "../../assets/website.webp";
+---
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<title>Luka Vuković</title>
+<meta
+  name="description"
+  content="Luka Vukovic's Blogfolio - Blog and Portfolio"
+/>
+
+<!-- Web analytics -->
+<!-- <script
+  data-goatcounter="https://my-account.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js"></script> -->
+
+<!-- Open Graph tags -->
+<meta
+  property="og:title"
+  content="Luka Vukovic's Blogfolio - Blog and Portfolio"
+/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://lukavukovic.dev/" />
+<meta
+  property="og:description"
+  content="Software Engineering Blog and Portfolio"
+/>
+<meta
+  property="og:image"
+  content={new URL(websiteImage.src, Astro.site || Astro.url).href}
+/>
+<meta property="og:image:alt" content="Luka Vukovic's Blogfolio" />
