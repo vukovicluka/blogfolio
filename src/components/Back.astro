@@ -1,4 +1,12 @@
-<a class="home-link" href="/">← Back to Home</a>
+---
+interface Props {
+  href?: string;
+}
+
+const { href = "/" } = Astro.props;
+---
+
+<a class="back-link" href={href}>← Back</a>
 
 <style>
   a {

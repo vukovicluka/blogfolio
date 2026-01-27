@@ -1,0 +1,144 @@
+---
+import Eyebrow from "../../components/Eyebrow.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const allBlogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+
+// Sort by publish date, newest first
+const sortedPosts: CollectionEntry<"blog">[] = allBlogPosts.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+---
+
+<Layout>
+  <section id="blog">
+    <Eyebrow label="Blog" />
+    <p>
+      Welcome to my blog! Here you'll find my thoughts, experiments, and
+      insights in building digital experiences, technology, and more.
+    </p>
+
+    <div class="blog-list">
+      {
+        sortedPosts.map((post) => (
+          <article class="blog-card">
+            <a href={`/blog/${post.slug}`}>
+              <h2>{post.data.title}</h2>
+              <p class="date">
+                {post.data.publishDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+              <p class="description">{post.data.description}</p>
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="tags">
+                  {(post.data.tags as string[]).map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #blog {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+  }
+
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .blog-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    background: #fff;
+  }
+
+  .blog-card:hover {
+    border-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .blog-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .blog-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #111;
+    transition: color 0.2s ease;
+  }
+
+  .blog-card:hover h2 {
+    color: #7c3aed;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0 0 1rem 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .blog-card {
+      padding: 1.25rem;
+    }
+
+    .blog-card h2 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
