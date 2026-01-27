@@ -47,3 +47,22 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   content={new URL(websiteImage.src, Astro.site || Astro.url).href}
 />
 <meta name="twitter:image:alt" content="Luka Vukovic's Blogfolio" />
+
+<!-- Structured data -->
+<script is:inline type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Luka Vuković",
+  "url": Astro.site?.href,
+  "description": defaultDescription,
+  "author": {
+    "@type": "Person",
+    "name": "Luka Vuković",
+    "url": Astro.site?.href,
+    "sameAs": [
+      "https://www.linkedin.com/in/luka-vukovic/",
+      "https://github.com/vukovicluka",
+      "https://stackoverflow.com/users/16994268/vukovicluka",
+    ],
+  },
+})} />

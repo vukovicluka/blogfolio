@@ -54,6 +54,22 @@ const readingTime = calculateReadingTime(entry.body);
       <Content />
     </div>
   </article>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": entry.data.title,
+    "description": entry.data.description,
+    "datePublished": entry.data.publishDate.toISOString(),
+    "url": new URL(`/blog/${entry.slug}`, Astro.site).href,
+    "author": {
+      "@type": "Person",
+      "name": "Luka Vuković",
+      "url": Astro.site?.href,
+    },
+    ...(entry.data.tags && entry.data.tags.length > 0 && {
+      "keywords": entry.data.tags.join(", "),
+    }),
+  })} />
 </Layout>
 
 <style>
