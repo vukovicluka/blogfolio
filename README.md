@@ -2,6 +2,6 @@
 
 Software Engineering Blog and Portfolio
 
-<a href="https://luka-vukovic.vercel.app/" target="_blank" rel="noopener noreferrer">🚀 Check it out, live</a>
+[🚀 Check it out, live](https://luka-vukovic.vercel.app/)
 
 ![Contact page](assets/contact.png)
