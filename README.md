@@ -4,4 +4,4 @@ Software Engineering Blog and Portfolio
 
 🚀 https://luka-vukovic.vercel.app/
 
-![About page](assets/about.png)
+![About page](assets/about.png){:target="\_blank"}
