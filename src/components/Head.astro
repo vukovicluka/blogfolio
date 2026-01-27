@@ -1,13 +1,23 @@
 ---
 import websiteImage from "../../assets/website.webp";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const defaultTitle = "Luka Vuković";
+const defaultDescription = "Software Engineering Blog and Portfolio";
+
+const { title, description } = Astro.props;
+
+const pageTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
+const pageDescription = description || defaultDescription;
 ---
 
 <link rel="sitemap" href="/sitemap-index.xml" />
-<title>Luka Vuković</title>
-<meta
-  name="description"
-  content="Luka Vukovic's Blogfolio - Blog and Portfolio"
-/>
+<title>{pageTitle}</title>
+<meta name="description" content={pageDescription} />
 
 <!-- Web analytics -->
 <!-- <script
@@ -16,16 +26,10 @@ import websiteImage from "../../assets/website.webp";
   src="//gc.zgo.at/count.js"></script> -->
 
 <!-- Open Graph tags -->
-<meta
-  property="og:title"
-  content="Luka Vukovic's Blogfolio - Blog and Portfolio"
-/>
+<meta property="og:title" content={pageTitle} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lukavukovic.dev/" />
-<meta
-  property="og:description"
-  content="Software Engineering Blog and Portfolio"
-/>
+<meta property="og:description" content={pageDescription} />
 <meta
   property="og:image"
   content={new URL(websiteImage.src, Astro.site || Astro.url).href}

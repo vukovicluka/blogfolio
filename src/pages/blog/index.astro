@@ -12,7 +12,10 @@ const sortedPosts: CollectionEntry<"blog">[] = allBlogPosts.sort(
 );
 ---
 
-<Layout>
+<Layout
+  title="Blog"
+  description="Thoughts, experiments, and insights on software engineering, product development, and technology."
+>
   <section id="blog">
     <Eyebrow label="Blog" />
     <p>
@@ -34,7 +37,9 @@ const sortedPosts: CollectionEntry<"blog">[] = allBlogPosts.sort(
                     day: "numeric",
                   })}
                 </p>
-                <span class="reading-time">{calculateReadingTime(post.body)}</span>
+                <span class="reading-time">
+                  {calculateReadingTime(post.body)}
+                </span>
               </div>
               <p class="description">{post.data.description}</p>
               {post.data.tags && post.data.tags.length > 0 && (

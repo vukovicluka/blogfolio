@@ -21,7 +21,7 @@ const { Content } = await entry.render();
 const readingTime = calculateReadingTime(entry.body);
 ---
 
-<Layout>
+<Layout title={entry.data.title} description={entry.data.description}>
   <Back href="/blog" />
   <article class="blog-post">
     <header>
