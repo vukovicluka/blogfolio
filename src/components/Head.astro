@@ -20,6 +20,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalUrl.href} />
 <title>{pageTitle}</title>
 <meta name="description" content={pageDescription} />
+<meta name="robots" content="index, follow" />
 
 <!-- Web analytics -->
 <!-- <script
