@@ -23,7 +23,7 @@ const readingTime = calculateReadingTime(entry.body);
 
 <Layout title={entry.data.title} description={entry.data.description}>
   <Back href="/blog" />
-  <article class="blog-post">
+  <article>
     <header>
       <h1>{entry.data.title}</h1>
       <div class="meta">
@@ -50,34 +50,34 @@ const readingTime = calculateReadingTime(entry.body);
       <p class="description">{entry.data.description}</p>
     </header>
 
-    <div class="content">
+    <div class="blog-content">
       <Content />
     </div>
   </article>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": entry.data.title,
-    "description": entry.data.description,
-    "datePublished": entry.data.publishDate.toISOString(),
-    "url": new URL(`/blog/${entry.slug}`, Astro.site).href,
-    "author": {
-      "@type": "Person",
-      "name": "Luka Vuković",
-      "url": Astro.site?.href,
-    },
-    ...(entry.data.tags && entry.data.tags.length > 0 && {
-      "keywords": entry.data.tags.join(", "),
-    }),
-  })} />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: entry.data.title,
+      description: entry.data.description,
+      datePublished: entry.data.publishDate.toISOString(),
+      url: new URL(`/blog/${entry.slug}`, Astro.site).href,
+      author: {
+        "@type": "Person",
+        name: "Luka Vuković",
+        url: Astro.site?.href,
+      },
+      ...(entry.data.tags &&
+        entry.data.tags.length > 0 && {
+          keywords: entry.data.tags.join(", "),
+        }),
+    })}
+  />
 </Layout>
 
 <style>
-  .blog-post {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
   header {
     margin-bottom: 2.5rem;
     padding-bottom: 1.5rem;
@@ -128,48 +128,48 @@ const readingTime = calculateReadingTime(entry.body);
     font-style: italic;
   }
 
-  .content {
+  .blog-content {
     line-height: 1.8;
   }
 
-  .content :global(h1),
-  .content :global(h2),
-  .content :global(h3),
-  .content :global(h4),
-  .content :global(h5),
-  .content :global(h6) {
+  .blog-content :global(h1),
+  .blog-content :global(h2),
+  .blog-content :global(h3),
+  .blog-content :global(h4),
+  .blog-content :global(h5),
+  .blog-content :global(h6) {
     font-weight: 600;
     margin: 2rem 0 1rem 0;
     color: #111;
   }
 
-  .content :global(h1) {
+  .blog-content :global(h1) {
     font-size: 2rem;
   }
 
-  .content :global(h2) {
+  .blog-content :global(h2) {
     font-size: 1.75rem;
   }
 
-  .content :global(h3) {
+  .blog-content :global(h3) {
     font-size: 1.5rem;
   }
 
-  .content :global(p) {
+  .blog-content :global(p) {
     margin: 1rem 0;
   }
 
-  .content :global(ul),
-  .content :global(ol) {
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
     margin: 1rem 0;
     padding-left: 2rem;
   }
 
-  .content :global(li) {
+  .blog-content :global(li) {
     margin: 0.5rem 0;
   }
 
-  .content :global(code) {
+  .blog-content :global(code) {
     background: rgba(0, 0, 0, 0.05);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
@@ -177,7 +177,7 @@ const readingTime = calculateReadingTime(entry.body);
     font-family: "Monaco", "Courier New", monospace;
   }
 
-  .content :global(pre) {
+  .blog-content :global(pre) {
     background: #1e1e1e;
     color: #d4d4d4;
     padding: 1.5rem;
@@ -186,13 +186,13 @@ const readingTime = calculateReadingTime(entry.body);
     margin: 1.5rem 0;
   }
 
-  .content :global(pre code) {
+  .blog-content :global(pre code) {
     background: none;
     padding: 0;
     color: inherit;
   }
 
-  .content :global(blockquote) {
+  .blog-content :global(blockquote) {
     border-left: 4px solid #7c3aed;
     padding-left: 1.5rem;
     margin: 1.5rem 0;
@@ -200,16 +200,16 @@ const readingTime = calculateReadingTime(entry.body);
     color: rgba(0, 0, 0, 0.7);
   }
 
-  .content :global(a) {
+  .blog-content :global(a) {
     color: #7c3aed;
     text-decoration: underline;
   }
 
-  .content :global(a:hover) {
+  .blog-content :global(a:hover) {
     color: #6d28d9;
   }
 
-  .content :global(strong) {
+  .blog-content :global(strong) {
     font-weight: 600;
   }
 
@@ -218,15 +218,15 @@ const readingTime = calculateReadingTime(entry.body);
       font-size: 2rem;
     }
 
-    .content :global(h1) {
+    .blog-content :global(h1) {
       font-size: 1.75rem;
     }
 
-    .content :global(h2) {
+    .blog-content :global(h2) {
       font-size: 1.5rem;
     }
 
-    .content :global(h3) {
+    .blog-content :global(h3) {
       font-size: 1.25rem;
     }
   }

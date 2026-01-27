@@ -5,8 +5,6 @@ publishDate: 2026-01-27
 tags: ["welcome", "intro"]
 ---
 
-# Welcome to My Blog!
-
 Hello and welcome! I'm excited to share my thoughts, experiences, and knowledge with you through this blog.
 
 ## What to Expect
