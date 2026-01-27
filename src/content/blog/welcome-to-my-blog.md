@@ -1,7 +1,7 @@
 ---
 title: "Welcome to My Blog"
 description: "This is my first blog post where I introduce myself and share what you can expect from this blog."
-publishDate: 2026-01-27
+publishDate: 2026-01-26
 tags: ["welcome", "intro"]
 ---
 
