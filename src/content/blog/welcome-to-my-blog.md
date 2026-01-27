@@ -26,4 +26,4 @@ I'm a passionate developer who loves creating digital experiences that make a di
 
 I'm looking forward to sharing this journey with you. Feel free to reach out if you have any questions or just want to chat about technology!
 
-Stay tuned for more posts coming soon!
+[Get in touch](/contact)
