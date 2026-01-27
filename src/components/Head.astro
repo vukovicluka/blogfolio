@@ -17,6 +17,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Luka Vuković"
+  href="/rss.xml"
+/>
 <link rel="canonical" href={canonicalUrl.href} />
 <title>{pageTitle}</title>
 <meta name="description" content={pageDescription} />
@@ -52,20 +58,24 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 <meta name="twitter:image:alt" content="Luka Vukovic's Blogfolio" />
 
 <!-- Structured data -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Luka Vuković",
-  "url": Astro.site?.href,
-  "description": defaultDescription,
-  "author": {
-    "@type": "Person",
-    "name": "Luka Vuković",
-    "url": Astro.site?.href,
-    "sameAs": [
-      "https://www.linkedin.com/in/luka-vukovic/",
-      "https://github.com/vukovicluka",
-      "https://stackoverflow.com/users/16994268/vukovicluka",
-    ],
-  },
-})} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Luka Vuković",
+    url: Astro.site?.href,
+    description: defaultDescription,
+    author: {
+      "@type": "Person",
+      name: "Luka Vuković",
+      url: Astro.site?.href,
+      sameAs: [
+        "https://www.linkedin.com/in/luka-vukovic/",
+        "https://github.com/vukovicluka",
+        "https://stackoverflow.com/users/16994268/vukovicluka",
+      ],
+    },
+  })}
+/>
