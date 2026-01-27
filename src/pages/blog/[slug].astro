@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Back from "../../components/Back.astro";
+import { calculateReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
   const blogEntries: CollectionEntry<"blog">[] = await getCollection("blog");
@@ -17,6 +18,7 @@ type Props = {
 
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
+const readingTime = calculateReadingTime(entry.body);
 ---
 
 <Layout>
@@ -34,6 +36,7 @@ const { Content } = await entry.render();
             })
           }
         </time>
+        <span class="reading-time">{readingTime}</span>
         {
           entry.data.tags && entry.data.tags.length > 0 && (
             <div class="tags">
@@ -81,7 +84,8 @@ const { Content } = await entry.render();
     margin-bottom: 1rem;
   }
 
-  time {
+  time,
+  .reading-time {
     font-size: 0.95rem;
     color: rgba(0, 0, 0, 0.5);
   }

@@ -2,6 +2,7 @@
 import Eyebrow from "../../components/Eyebrow.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { calculateReadingTime } from "../../utils/readingTime";
 
 const allBlogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 
@@ -25,13 +26,16 @@ const sortedPosts: CollectionEntry<"blog">[] = allBlogPosts.sort(
           <article class="blog-card">
             <a href={`/blog/${post.slug}`}>
               <h2>{post.data.title}</h2>
-              <p class="date">
-                {post.data.publishDate.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
+              <div class="meta">
+                <p class="date">
+                  {post.data.publishDate.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+                <span class="reading-time">{calculateReadingTime(post.body)}</span>
+              </div>
               <p class="description">{post.data.description}</p>
               {post.data.tags && post.data.tags.length > 0 && (
                 <div class="tags">
@@ -100,10 +104,27 @@ const sortedPosts: CollectionEntry<"blog">[] = allBlogPosts.sort(
     color: #7c3aed;
   }
 
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   .date {
     font-size: 0.9rem;
     color: rgba(0, 0, 0, 0.5);
-    margin: 0 0 0.75rem 0;
+    margin: 0;
+  }
+
+  .reading-time {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .reading-time::before {
+    content: "•";
+    margin-right: 0.75rem;
   }
 
   .description {
