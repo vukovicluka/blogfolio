@@ -4,10 +4,52 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <section id="home">
-    <p>
-      Welcome! This space is under construction 🚧 👷‍♂️, but soon it will be home
-      to my latest blogs, thoughts, and experiments in building digital
-      experiences.
+    <h2 class="animate-p animate-delay-1">
+      Welcome! 👋 My name is <b>Luka</b>.
+    </h2>
+    <p class="animate-p animate-delay-2">
+      This is home to my latest blogs, thoughts, and experiments in building
+      digital experiences.
     </p>
   </section>
 </Layout>
+
+<style>
+  #home {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .animate-p {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .animate-delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .animate-delay-2 {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
