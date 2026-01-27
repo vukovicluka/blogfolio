@@ -31,15 +31,20 @@ function isActive(href: string, path: string): boolean {
     </button>
 
     <nav id="nav-menu" class="site-nav" aria-label="Main navigation">
-      {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class:list={["site-nav__link", { active: isActive(link.href, currentPath) }]}
-          aria-current={isActive(link.href, currentPath) ? "page" : undefined}
-        >
-          {link.label}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "site-nav__link",
+              { active: isActive(link.href, currentPath) },
+            ]}
+            aria-current={isActive(link.href, currentPath) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>
@@ -87,8 +92,7 @@ function isActive(href: string, path: string): boolean {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: min(100%, 1100px);
-    min-width: min(670px, 100%);
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
     padding: 1rem clamp(1rem, 5vw, 4rem);
