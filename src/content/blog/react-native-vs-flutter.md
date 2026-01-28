@@ -54,5 +54,5 @@ Creating apps in Flutter feels more pleasant, and Flutter has a better DX than R
 Nevertheless, both technologies are excellent, you can't really go wrong with either option. Choose what you and your team have more experience with.
 
 As what I decided just aligns with the previous sentence. My team and I are primarily web developers with a lot of experience in React building SPAs <i>(Single Page Applications)</i>, therefore having smaller learning curve while opting for React Native.
-Economically speaking, as always, it didn't make sense to spend time on Flutter education, and also hiring solely Flutter developers was expensive for my company.
+Economically speaking, as always, it didn't make sense to spend time on Flutter education of other colleagues, and also hiring solely Flutter developers was expensive for my company.
 Therefore, I decided to go with <b>React Native</b> in this case.
