@@ -8,7 +8,7 @@ tags: ["react", "tanstack-query"]
 While ago, working on the frontend codebase of one of my projects, I saw something that was bothering me.
 As the app is using TanStack Query, we had queries and query keys scattered all over the place. Sometime afterwards I was reading [TkDodo's blog](https://tkdodo.eu/blog) and ran into so called query factories, where all query keys are grouped in one place and reused.
 
-I'm sharing with you the setup I created in the codebase of the project with the reference to TkDodo's
+I'm sharing with you the setup I created in the codebase of the project with the reference to TkDodo's blog post.
 
 # Codebase
 
