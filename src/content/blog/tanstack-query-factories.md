@@ -14,7 +14,7 @@ I'm sharing with you the setup I created in the codebase of the project with the
 
 Not so important, but for easier following, this project has feature based organization of files, something similar to this:
 
-![alt text](codebase.png)
+![Repo image](../../../assets/codebase.png)
 
 Let's assume we have some kind of a `SettingsPage`, which is a presentation component and in it `useSettingsPage` hook which is the brain of the component.
 
@@ -106,4 +106,4 @@ export const useSettingsUpdateMutation = (onSettled: VoidFunction) => {
 
 What I also use with this setup is <em>@tanstack/eslint-plugin-query</em>. Which gives safety margins in case you forget to specify correct key. Like so:
 
-![alt text](lint.png)
+![Linting example](../../../assets/lint.png)
