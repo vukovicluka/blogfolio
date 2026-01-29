@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import websiteImage from "../../assets/website.webp";
 
 interface Props {
@@ -81,4 +80,5 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   })}
 />
 
-<ClientRouter />
+<!-- Disabled because mobile menu nav stopped working correctly -->
+<!-- <ClientRouter /> -->
