@@ -45,6 +45,15 @@ function isActive(href: string, path: string): boolean {
           </a>
         ))
       }
+      <a
+        href="/cv"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cv-link"
+      >
+        CV
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -151,6 +160,34 @@ function isActive(href: string, path: string): boolean {
     border-radius: 999px;
   }
 
+  .cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #7c3aed;
+    border: 1.5px solid #7c3aed;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .cv-link:hover,
+  .cv-link:focus-visible {
+    background-color: #7c3aed;
+    color: #fff;
+  }
+
+  .cv-link svg {
+    flex-shrink: 0;
+  }
+
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -228,6 +265,11 @@ function isActive(href: string, path: string): boolean {
 
     .site-nav__link:last-child {
       border-bottom: none;
+    }
+
+    .cv-link {
+      margin-top: 0.5rem;
+      width: fit-content;
     }
 
     .site-nav__link.active::after {
