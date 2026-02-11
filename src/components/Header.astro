@@ -50,31 +50,33 @@ function isActive(href: string, path: string): boolean {
 </header>
 
 <script>
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("#nav-menu");
+  document.addEventListener("astro:page-load", () => {
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("#nav-menu");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      const isOpen = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-      nav.classList.toggle("open");
-    });
-
-    nav.querySelectorAll(".site-nav__link").forEach((link) => {
-      link.addEventListener("click", () => {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("open");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!isOpen));
+        nav.classList.toggle("open");
       });
-    });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && nav.classList.contains("open")) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("open");
-        (toggle as HTMLElement).focus();
-      }
-    });
-  }
+      nav.querySelectorAll(".site-nav__link").forEach((link) => {
+        link.addEventListener("click", () => {
+          toggle.setAttribute("aria-expanded", "false");
+          nav.classList.remove("open");
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && nav.classList.contains("open")) {
+          toggle.setAttribute("aria-expanded", "false");
+          nav.classList.remove("open");
+          (toggle as HTMLElement).focus();
+        }
+      });
+    }
+  });
 </script>
 
 <style>
