@@ -37,6 +37,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Visitor analytics -->
 <script defer src="https://visitor.lukavukovic.dev/tracker.js"></script>
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    if (window.trackVisit) window.trackVisit();
+  });
+</script>
 
 <!-- Open Graph tags -->
 <meta property="og:title" content={pageTitle} />
