@@ -9,7 +9,7 @@ After I published my <em>Blogfolio</em> (Blog + Portfolio) couple of weeks ago, 
 I want to make content of my blog valuable, as I see and read so many blogs from IT gurus around the world.
 
 The first thing I'm interested in is whether anyone reads my blog, or visits my website, at all. To do that, one would need some kind of analytics tool embedded into their website.
-Some of the popular ones like Google analytics, Goatcounter, Matomo, Plausible etc. where the option.
+Some of the popular ones like Google analytics, Goatcounter, Matomo, Plausible etc. were the option.
 
 I wanted to have something open-source, that I don't have to pay :), and something dead simple with some basic analytics data.
 
@@ -65,7 +65,7 @@ Why no cookies or consent are needed? :)
 
 1. No personal data ever stored — the raw IP and user agent are used only as hash inputs, then discarded. The database only stores the hash, never the IP.
 
-2. No persistent client-side identifiers — tracker.js sets zero cookies, uses no localStorage, and does no fingerprinting. Each page view is fully independent.
+2. No persistent client-side identifiers — tracker.js sets zero cookies, uses no local storage, and does no fingerprinting. Each page view is fully independent.
 
 3. No re-identification possible — once the daily salt is deleted, even I cannot reverse the hashes to identify a visitor. This satisfies GDPR's pseudonymization requirements.
 
