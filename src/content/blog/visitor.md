@@ -1,7 +1,7 @@
 ---
 title: "Visitor - website analytics tool"
 description: "Visitor is my own analytics tool which I embedded inside my website."
-publishDate: 2026-02-05
+publishDate: 2026-02-14
 tags: ["analytics", "golang"]
 ---
 
