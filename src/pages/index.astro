@@ -1,23 +1,106 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LatestPosts from "../components/LatestPosts.astro";
 ---
 
 <Layout>
   <section id="home">
-    <h2 class="animate-p animate-delay-1">
-      Welcome! 👋 My name is <b>Luka</b>.
-    </h2>
-    <p class="animate-p animate-delay-2">
-      This is home to my latest blogs, thoughts, and experiments in building
-      digital experiences.
+    <p class="role animate-p animate-delay-1">Software Engineer</p>
+    <h1 class="name animate-p animate-delay-2">
+      Hi, I'm <span class="accent">Luka</span>.
+    </h1>
+    <p class="tagline animate-p animate-delay-3">
+      I build clean, scalable software — web apps, APIs, microservices, and
+      mobile. This is where I write about what I learn along the way.
     </p>
+    <div class="cta animate-p animate-delay-4">
+      <a href="/blog" class="btn btn-primary">Read my blog</a>
+      <a href="/contact" class="btn btn-secondary">Get in touch</a>
+    </div>
   </section>
+
+  <LatestPosts />
 </Layout>
 
 <style>
   #home {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 2rem;
+  }
+
+  .role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin: 0;
+  }
+
+  .name {
+    font-family: "Fraunces", serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    color: #111;
+  }
+
+  .accent {
+    color: #7c3aed;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.6);
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background-color: #7c3aed;
+    color: #fff;
+    border: 2px solid #7c3aed;
+  }
+
+  .btn-primary:hover {
+    background-color: #6d28d9;
+    border-color: #6d28d9;
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #111;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary:hover {
+    border-color: #7c3aed;
+    color: #7c3aed;
   }
 
   .animate-p {
@@ -25,31 +108,26 @@ import Layout from "../layouts/Layout.astro";
     animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
-  .animate-delay-1 {
-    animation-delay: 0.1s;
-  }
-
-  .animate-delay-2 {
-    animation-delay: 0.3s;
-  }
+  .animate-delay-1 { animation-delay: 0.1s; }
+  .animate-delay-2 { animation-delay: 0.25s; }
+  .animate-delay-3 { animation-delay: 0.4s; }
+  .animate-delay-4 { animation-delay: 0.55s; }
 
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .animate-p {
       animation: none;
       opacity: 1;
       transform: none;
     }
+  }
+
+  @media (max-width: 640px) {
+    .cta { flex-direction: column; }
+    .btn { text-align: center; }
   }
 </style>

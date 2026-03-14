@@ -3,10 +3,21 @@ interface Props {
   href?: string;
 }
 
-const { href = "/" } = Astro.props;
+const { href = "/blog" } = Astro.props;
 ---
 
 <a class="back-link" href={href}>← Back</a>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelector(".back-link")?.addEventListener("click", (e) => {
+      if (history.length > 1) {
+        e.preventDefault();
+        history.back();
+      }
+    });
+  });
+</script>
 
 <style>
   a {
