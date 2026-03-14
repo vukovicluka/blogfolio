@@ -72,3 +72,7 @@ Why no cookies or consent are needed? :)
 4. Minimal data collection — only path, referrer, screen size, country code, browser, and operating system are stored. All aggregate, none personal.
 
 5. No cross-day profiling — daily salt rotation makes it technically impossible to build long-term visitor profiles.
+
+# Code
+
+You can check the source code of the tool on my [Github](https://github.com/vukovicluka/visitor-saas).
