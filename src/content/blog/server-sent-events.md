@@ -1,6 +1,6 @@
 ---
 title: "Don't jump to Websockets, default to Server-Sent Events for real-time updates"
-description: "Recent project problem showed me a simpler way of updating client UI in real-time using SSE instead of Websockets."
+description: "Recent project problem showed me a simpler way of updating client UI in real-time using SSE instead of Websockets"
 publishDate: 2026-04-11
 tags: ["sse", websockets]
 ---
@@ -10,9 +10,9 @@ tags: ["sse", websockets]
 In the project I'm currently working on we have two parts of the application (that matter for the context). Frontend part of the client is the
 dashboard web application built with React and Java Spring boot backend server which is the brain of the system.
 
-Users of the application work with different domain entities that have different properties, for the sake of simplicity let's just consider each entity has an ID and status property - ID as unique identifier in the database and status of the entity which is enumeration with values OPEN, PROCESSING, WAITING, COMPLETED and REJECTED.
+Users of the application work with different domain entities that have different properties, for the sake of simplicity let's just consider each entity has an `ID` and `status` property - `ID` as unique identifier in the database and `status` of the entity which is enumeration with values `OPEN`, `PROCESSING`, `WAITING`, `COMPLETED` and `REJECTED`.
 
-Each entity starts with OPEN, and after various business logic use cases, finishes in either COMPLETED or REJECTED status.
+Each entity starts with `OPEN`, and after various business logic use cases, finishes in either `COMPLETED` or `REJECTED` status.
 
 Status can change with different actions on the client and mix of domain logic on the backend. If an action on the client triggers the status change, we can easily invalidate or take some actions to change the status, but what happens when the domain business logic changes the status on the backend, without client actions? How can we refresh the client data so the user of the application sees the latest status?
 
@@ -60,7 +60,7 @@ function useEntityStatusSSE(
 
 # Auth
 
-Application uses HttpOnly cookies which are a browser mechanism and SSE authenticates the same way as any other fetch request - browser sends the cookies via HTTPS requests automatically.
+Application uses `HttpOnly` cookies which are a browser mechanism and SSE authenticates the same way as any other fetch request - browser sends the cookies via HTTPS requests automatically.
 
 # References
 
