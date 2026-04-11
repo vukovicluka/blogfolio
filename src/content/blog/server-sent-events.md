@@ -1,6 +1,6 @@
 ---
 title: "Don't jump to Websockets, default to Server-Sent Events for real-time updates"
-description: "Recent project problem showed me a simpler way of updating client UI in real-time using SSE instead of websockets"
+description: "Recent project problem showed me a simpler way of updating client UI in real-time using SSE instead of Websockets."
 publishDate: 2026-04-11
 tags: ["sse", websockets]
 ---
