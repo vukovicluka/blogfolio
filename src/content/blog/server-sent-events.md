@@ -25,6 +25,8 @@ With websockets we could establish a two-way communication with the backend, and
 Enter Server-sent events, a one-way connection to stream events from the server to the client.
 With that we accomplished much simpler and straightforward real-time updates to the entity status.
 
+Basically how this works - user makes some actions on the entity client side, server receives the data and starts working with the data, going through the domain logic, talking to some external services, and after some time, it can change the status of the entity, if this happens, the api endpoint behaves as a event stream, and once the status changes, endpoint emits the event in real time to the client, which is listening and ready to receive the new status, which is then rerender on the client.
+
 Streamlined (FE) version focused on the key concept:
 
 ```tsx
