@@ -24,9 +24,9 @@ First thing that came to my mind when hearing "real-time" were Websockets. With 
 
 One other option would also be to handle this use case with some kind of `pooling` - periodically calling the backend api and check if status changed.
 
-Also, since we are using Tanstack Query, we could use `useQuery`'s option `refetchInterval`, which also accepts some interval after which the query should be refetched.
+Also, since we're using Tanstack Query, we could use `useQuery`'s option `refetchInterval`, which also accepts some interval after which the query should be refetched.
 
-This would work, but how can we specify the time interval - some magic number? every second?, every 5 seconds? You see where I'm going with this.
+This would work, but how can we specify the time interval - some magic number? every second? every 5 seconds? You see where I'm going with this.
 
 # Server-sent events
 
