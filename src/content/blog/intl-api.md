@@ -75,6 +75,8 @@ const options = {
   year: "numeric",
 };
 const formatter = new Intl.DateTimeFormat(locale, options);
+
+const createdDate = new Date("2026-04-24T12:15:00Z");
 formatter.format(createdDate);
 // "24. 04. 2026."
 ```
