@@ -27,6 +27,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalUrl.href} />
 <title>{pageTitle}</title>
 <meta name="description" content={pageDescription} />
+<meta name="author" content="Luka Vuković" />
 <meta name="robots" content="index, follow" />
 
 <!-- Visitor analytics -->
@@ -66,20 +67,37 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   type="application/ld+json"
   set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Luka Vuković",
-    url: Astro.site?.href,
-    description: defaultDescription,
-    author: {
-      "@type": "Person",
-      name: "Luka Vuković",
-      url: Astro.site?.href,
-      sameAs: [
-        "https://www.linkedin.com/in/luka-vukovic/",
-        "https://github.com/vukovicluka",
-        "https://stackoverflow.com/users/16994268/vukovicluka",
-      ],
-    },
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${Astro.site?.href}#website`,
+        name: "Luka Vuković",
+        url: Astro.site?.href,
+        description: defaultDescription,
+        author: { "@id": `${Astro.site?.href}#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${Astro.site?.href}#person`,
+        name: "Luka Vuković",
+        url: Astro.site?.href,
+        jobTitle: "Software Engineer",
+        description:
+          "Software Engineer focused on building meaningful products with clean architecture and an eye for detail.",
+        knowsAbout: [
+          "Software Engineering",
+          "Web Development",
+          "Microservices",
+          "APIs",
+          "Mobile Development",
+        ],
+        sameAs: [
+          "https://www.linkedin.com/in/luka-vukovic/",
+          "https://github.com/vukovicluka",
+          "https://stackoverflow.com/users/16994268/vukovicluka",
+        ],
+      },
+    ],
   })}
 />
 
